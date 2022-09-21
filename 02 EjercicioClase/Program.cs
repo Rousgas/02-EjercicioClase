@@ -18,10 +18,14 @@ internal class Program
             if (resp == 1)
             {
                 Fecha f = new Fecha();
+                /*
                 f.ver_fecha();
                 f.que_dia();
                 f.incrementar_dias();
                 f.restar_fechas();
+                f.comparar_fechas();
+                */
+                f.formato_largo();
             }
             
         } while (resp != 4);
