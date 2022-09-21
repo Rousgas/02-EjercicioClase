@@ -22,6 +22,7 @@ internal class Program
                 f.que_dia();
                 f.incrementar_dias();
                 f.restar_fechas();
+                f.comparar_fechas();
             }
             
         } while (resp != 4);

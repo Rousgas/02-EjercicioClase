@@ -66,7 +66,7 @@ namespace _02_EjercicioClase
         {
             DateTime f1,f2;
             TimeSpan f_resultado;
-            Boolean correcto, esPosterior;
+            Boolean correcto;
 
             Console.WriteLine("Te voy a pedir dos fechas en formato 'DD/MM/YYYY' y vamos a ver cuánta diferencia de tiempo hay entre ellas");
 
@@ -82,7 +82,7 @@ namespace _02_EjercicioClase
 
                     f_resultado = f1.Subtract(f2);
 
-                    Console.WriteLine("Lo que sale de la resta f1 - f2 " + f_resultado.ToString("dddd"));
+                    Console.WriteLine("Lo que sale de la resta f1 - f2 " + f_resultado.ToString("dddd") + " días");
                     //no es lo que pide el ejercicio
                     correcto = true;
                 }
@@ -94,7 +94,48 @@ namespace _02_EjercicioClase
             } while (!correcto);
         }
         
-    }
 
-    
+        public void comparar_fechas()
+        {
+            DateTime f1, f2;
+            Boolean correcto;
+            int comp;
+
+            Console.WriteLine("Te voy a pedir dos fechas en formato 'DD/MM/YYYY' y vamos a compararlas");
+
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Ingrese la primera fecha con formato 'DD/MM/YYYY'");
+                    f1 = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese la segunda fecha con formato 'DD/MM/YYYY'");
+                    f2 = DateTime.Parse(Console.ReadLine());
+
+                    comp = DateTime.Compare(f1, f2);
+                    Console.WriteLine("Comp vale " + comp);
+
+                    if (comp < 0)
+                    {
+                        Console.WriteLine(f1.ToShortDateString() + " es anterior a " + f2.ToShortDateString());
+                    }
+                    if(comp == 0)
+                    {
+                        Console.WriteLine("Las fechas son iguales");
+                    }
+                    if(comp > 0)
+                    {
+                        Console.WriteLine(f1.ToShortDateString() + " es posterior a " + f2.ToShortDateString());
+                    }
+                    
+                    correcto = true;
+                }
+                catch
+                {
+                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYY'");
+                    correcto = false;
+                }
+            } while (!correcto);
+        }
+    }
 }
