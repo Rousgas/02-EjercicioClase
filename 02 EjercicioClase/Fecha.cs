@@ -30,7 +30,7 @@ namespace _02_EjercicioClase
                 }
                 catch
                 {
-                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYY'");
+                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYYY'");
                     correcto = false;
                 }
             } while (!correcto);
@@ -88,7 +88,7 @@ namespace _02_EjercicioClase
                 }
                 catch
                 {
-                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYY'");
+                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYYY'");
                     correcto = false;
                 }
             } while (!correcto);
@@ -132,7 +132,31 @@ namespace _02_EjercicioClase
                 }
                 catch
                 {
-                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYY'");
+                    Console.WriteLine("El formato tiene que ser 'DD/MM/YYYY'");
+                    correcto = false;
+                }
+            } while (!correcto);
+        }
+
+        public void formato_largo()
+        {
+            DateTime f;
+            Boolean correcto;
+
+            do
+            {
+                Console.WriteLine("Ingrese una fecha con formato corto 'DD/MM/YY'");
+
+                try
+                {
+                    f = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine("El formato largo de la fecha introducida es " + f.ToString("D", CultureInfo.CreateSpecificCulture("es-ES")));
+
+                    correcto = true;
+                }
+                catch
+                {
+                    Console.WriteLine("El formato tiene que ser corto 'DD/MM/YY'");
                     correcto = false;
                 }
             } while (!correcto);
