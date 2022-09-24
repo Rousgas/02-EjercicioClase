@@ -5,10 +5,11 @@ internal class Program
     private static void Main(string[] args)
     {
         int resp, respLib;
-        String cadena = "";
+        String cadena = "", tit, aut, est, edi;
         List<Libro> libreria = new List<Libro>();
         Libro l = new Libro("El señor de los anillos", "Tolkien", "Fantasá/Aventura", "Minotauro");
         Libro l1 = new Libro("Reina Roja", "Gomez-Jurado", "Suspense", "B");
+        Libro libroUsu;
 
         libreria.Add(l);
         libreria.Add(l1);
@@ -29,11 +30,17 @@ internal class Program
                 Fecha f = new Fecha();
                 
                 f.ver_fecha();
+                Console.WriteLine();
                 f.que_dia();
+                Console.WriteLine();
                 f.incrementar_dias();
+                Console.WriteLine();
                 f.restar_fechas();
+                Console.WriteLine();
                 f.comparar_fechas();
+                Console.WriteLine();
                 f.formato_largo();
+                Console.WriteLine();
             }
             if (resp == 2)
             {
@@ -49,7 +56,19 @@ internal class Program
 
                     if(respLib == 1)
                     {
+                        Console.WriteLine("Para insertar un libro necesito que me digas sus datos");
+                        Console.WriteLine("Título:");
+                        tit = Console.ReadLine();
+                        Console.WriteLine("Autor::");
+                        aut = Console.ReadLine();
+                        Console.WriteLine("Estilo:");
+                        est = Console.ReadLine();
+                        Console.WriteLine("Editorial:");
+                        edi = Console.ReadLine();
 
+                        libroUsu = new Libro(tit, aut, est, edi);
+                        libreria.Add(libroUsu);
+                        
                     }
 
                     if(respLib == 2)
@@ -60,10 +79,10 @@ internal class Program
                             Console.WriteLine();
                         }
                     }
-
+                    Console.WriteLine();
                 } while (respLib != 5);
             }
-            
+            Console.WriteLine();
         } while (resp != 4);
     }
 }

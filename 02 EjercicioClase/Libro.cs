@@ -27,5 +27,6 @@ namespace _02_EjercicioClase
         {
             return ("Título: " + this.titulo + " Autor: " + this.autor + " Estilo: " + this.estilo + " Editorial: " + this.editorial);
         }
+
     }
 }
