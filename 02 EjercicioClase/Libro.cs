@@ -13,7 +13,7 @@ namespace _02_EjercicioClase
         public String autor;
         public String estilo;
         public String editorial;
-        public List<Libro> libreria = new List<Libro>();
+        
 
         public Libro(String t, String a, String e, String ed)
         {
@@ -23,5 +23,9 @@ namespace _02_EjercicioClase
             this.editorial = ed;
         }
 
+        public override string ToString()
+        {
+            return ("Título: " + this.titulo + " Autor: " + this.autor + " Estilo: " + this.estilo + " Editorial: " + this.editorial);
+        }
     }
 }
