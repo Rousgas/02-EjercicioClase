@@ -22,5 +22,10 @@ namespace _02_EjercicioClase
             total = (((10*this.eslora) * 12) + (this.potencia + this.camarotes));
             return total;
         }
+
+        public override string ToString()
+        {
+            return ("Matricula: " + this.matricula + " Eslora: " + this.eslora + " Año: " + this.anio + " Potencia: " + this.potencia + " Camarotes:" + this.camarotes);
+        }
     }
 }

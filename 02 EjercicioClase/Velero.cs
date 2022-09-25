@@ -23,6 +23,9 @@ namespace _02_EjercicioClase
             return total;
         }
 
-        
+        public override string ToString()
+        {
+            return ("Matricula: " + this.matricula + " Eslora: " + this.eslora + " Año: " + this.anio + " Numero mastiles: " + this.mastiles);
+        }
     }
 }
