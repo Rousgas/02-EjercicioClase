@@ -4,7 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int resp, respLib;
+        int resp, respLib, cont, n = 0;
         String cadena = "", tit, aut, est, edi;
         Boolean esCorrecto;
         List<Libro> libreria = new List<Libro>();
@@ -98,6 +98,8 @@ internal class Program
                                 esCorrecto = true;
 
                                 lib.modificarLibro();
+                                Console.WriteLine("Libro modificado con exito");
+                                Console.WriteLine();
                             }
                         }
                         if (!esCorrecto)
@@ -106,11 +108,52 @@ internal class Program
                         }
                     }
 
+                    if(respLib == 4)
+                    {
+                        esCorrecto = false;
+                        cont = 0;
+                        Console.WriteLine("Dame el título del libro que quieres borrar");
+                        tit = Console.ReadLine();
+
+                        
+
+                        foreach(Libro lib in libreria)
+                        {
+                            if (lib.titulo.Equals(tit))
+                            {
+                                Console.WriteLine("Libro encontrado, vamos a borrar");
+
+                                n = cont;
+
+                                esCorrecto = true;
+                            }
+                            cont++;
+                        }
+
+                        if (!esCorrecto)
+                        {
+                            Console.WriteLine("Libro no encontrado");
+                        }
+                        else
+                        {
+                            cadena = borrarLibro(libreria, n);
+                            Console.WriteLine(cadena);
+                        }
+
+                    }
+
                     Console.WriteLine();
                 } while (respLib != 5);
             }
             Console.WriteLine();
         } while (resp != 4);
+    }
+
+    public static String borrarLibro(List<Libro> lib, int c)
+    {
+        lib.Remove(lib[c]);
+
+        return "Libro borrado con exito";
     }
 
     
