@@ -145,6 +145,10 @@ internal class Program
                     Console.WriteLine();
                 } while (respLib != 5);
             }
+            if(resp == 3)
+            {
+                
+            }
             Console.WriteLine();
         } while (resp != 4);
     }
