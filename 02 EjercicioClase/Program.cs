@@ -15,7 +15,17 @@ internal class Program
         libreria.Add(l);
         libreria.Add(l1);
 
-        
+        Velero vel = new Velero("A1", 25, 2000, 2);
+        Lancha lan = new Lancha("A2", 6, 2020, 220);
+        Yate yat = new Yate("A3", 20, 2022, 300, 4);
+        String f1 = "18/02/2020", f2 = "19/03/2020", f3 = "20/04/2020", f4 = "21/05/2020";
+        DateTime dt1 = DateTime.Parse(f1), dt2 = DateTime.Parse(f2), dt3 = DateTime.Parse(f3), dt4 = DateTime.Parse(f4);
+        Alquiler al = new Alquiler("Juan","111D", dt1, dt2, "1B", vel);
+        Alquiler al1 = new Alquiler("Pepe", "222A", dt3, dt4, "4C", lan);
+        Alquiler al2 = new Alquiler("Llull", "333C", dt1, dt3, "1B", yat);
+        int totalAlquiler;
+
+
 
         do
         {
@@ -144,6 +154,16 @@ internal class Program
 
                     Console.WriteLine();
                 } while (respLib != 5);
+            }
+            if(resp == 3)
+            {
+                totalAlquiler = al.calcularAlquiler(vel.moduloBarco());
+                Console.WriteLine(al.ToString() + " " + vel.ToString() + " Total de alquiler " + totalAlquiler);
+                totalAlquiler = al1.calcularAlquiler(lan.moduloBarco());
+                Console.WriteLine(al1.ToString() + " " + lan.ToString() + " Total de alquiler " + totalAlquiler);
+                totalAlquiler = al2.calcularAlquiler(yat.moduloBarco());
+                Console.WriteLine(al2.ToString() + " " + yat.ToString() + " Total de alquiler " + totalAlquiler);
+
             }
             Console.WriteLine();
         } while (resp != 4);
