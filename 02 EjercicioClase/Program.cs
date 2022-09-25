@@ -6,6 +6,7 @@ internal class Program
     {
         int resp, respLib;
         String cadena = "", tit, aut, est, edi;
+        Boolean esCorrecto;
         List<Libro> libreria = new List<Libro>();
         Libro l = new Libro("El señor de los anillos", "Tolkien", "Fantasá/Aventura", "Minotauro");
         Libro l1 = new Libro("Reina Roja", "Gomez-Jurado", "Suspense", "B");
@@ -69,6 +70,7 @@ internal class Program
                         libroUsu = new Libro(tit, aut, est, edi);
                         libreria.Add(libroUsu);
                         
+                        Console.WriteLine();
                     }
 
                     if(respLib == 2)
@@ -78,11 +80,38 @@ internal class Program
                             Console.WriteLine(cadena = lib.ToString());
                             Console.WriteLine();
                         }
+
+                        Console.WriteLine();
                     }
+
+                    if(respLib == 3)
+                    {
+                        esCorrecto = false;
+                        Console.WriteLine("Dame el título del libro que quieres modificar");
+                        tit = Console.ReadLine();
+                        
+                        foreach(Libro lib in libreria)
+                        {
+                            if (lib.titulo.Equals(tit))
+                            {
+                                Console.WriteLine("Libro encontrado, vamos a modificar");
+                                esCorrecto = true;
+
+                                lib.modificarLibro();
+                            }
+                        }
+                        if (!esCorrecto)
+                        {
+                            Console.WriteLine("Libro no encontrado");
+                        }
+                    }
+
                     Console.WriteLine();
                 } while (respLib != 5);
             }
             Console.WriteLine();
         } while (resp != 4);
     }
+
+    
 }
